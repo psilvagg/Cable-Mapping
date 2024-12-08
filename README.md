@@ -11,4 +11,4 @@
 Este projeto foi criado para atender à necessidade de melhor controle e visualização da infraestrutura de cabeamento em empresas, promovendo organização e economia de tempo.
 
 
-Desenvolvido por [@psilvagg](https://github.com/user1) e [@Louis014](https://github.com/user2).  
+Desenvolvido por [@Pedro](https://github.com/psilvagg) e [@Luis Filipe](https://github.com/Louis014).
