@@ -12,7 +12,7 @@ Este projeto foi criado para atender à necessidade de melhor controle e visuali
 
 ## Credenciais do software
 
-Usuário: Admin
+Usuário: Admin <br>
 Senha: 123456
 
 
