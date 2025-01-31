@@ -10,5 +10,10 @@
 
 Este projeto foi criado para atender à necessidade de melhor controle e visualização da infraestrutura de cabeamento em empresas, promovendo organização e economia de tempo.
 
+## Credenciais do software
+
+Usuário: Admin
+Senha: 123456
+
 
 Desenvolvido por [@Pedro](https://github.com/psilvagg) e [@Luis Filipe](https://github.com/Louis014).
