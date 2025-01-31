@@ -15,7 +15,7 @@ char rack_shaft[100], sala[100], ponto[50], swit[200], sc[3], porta_switch[100],
 int main(void)
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
-    //Caso o diretÛrio especificado n„o exista, esta funÁ„o cria o diretÛrio; caso j· exista, a funÁ„o apenas cria o arquivo e insere os dados conforme necess·rio.
+    //Caso o diret√≥rio especificado n√£o exista, esta fun√ß√£o cria o diret√≥rio; caso j√° exista, a fun√ß√£o apenas cria o arquivo e insere os dados conforme necess√°rio.
     system("mkdir C:\\Documents\\Cable_Map\\Base_de_dados\\");
     system("attrib +H ""C:\\Documents\\Cable_Map");
     system("mkdir C:\\Documents\\Cable_Map\\Users");
@@ -34,17 +34,17 @@ void login(void)
     system("color 02");
     printf("\n\t--==|Mapeamento de cabos|==--\n\n\n\n");
     printf("| Data: ");
-    //Define a cor cinza para uma linha especÌfica.
+    //Define a cor cinza para uma linha espec√≠fica.
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     //Exibe a data.
     system("date/t");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     printf("| Hora: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-    //Exibe o hor·rio.
+    //Exibe o hor√°rio.
     system("time/t");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    printf("\n|Usu·rio:\n| ");
+    printf("\n|Usu√°rio:\n| ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%s", &username);
@@ -52,7 +52,7 @@ void login(void)
     printf("\n|Senha:\n| ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
-    //M·scara de senha que oculta a entrada do usu·rio.
+    //M√°scara de senha que oculta a entrada do usu√°rio.
     while (1){
         c = getch();
             if (c == 13)
@@ -75,10 +75,10 @@ void login(void)
             printf("*");
             i++;
             }
-    }   //Pausa a execuÁ„o do cÛdigo por alguns segundos.
+    }   //Pausa a execu√ß√£o do c√≥digo por alguns segundos.
         Sleep(750);
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-        //Abre o diretÛrio especificado, verifica o usu·rio e a senha; se tudo estiver correto, realiza o login.
+        //Abre o diret√≥rio especificado, verifica o usu√°rio e a senha; se tudo estiver correto, realiza o login.
         nmtxtl[0] = '\0';
         validadorsenha[0] = '\0';
         strcat(nmtxtl, "C:\\Documents\\Cable_Map\\Users\\");
@@ -109,21 +109,21 @@ void login(void)
                         primeiroacesso();
                     }
                     else{
-                         MessageBox(NULL, "Credenciais incorretas ou usu·rio n„o cadastrado\n      Entre em contato com a sua administraÁ„o\n                                FECHANDO!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+                         MessageBox(NULL, "Credenciais incorretas ou usu√°rio n√£o cadastrado\n      Entre em contato com a sua administra√ß√£o\n                                FECHANDO!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
                         exit(0);
                     }
                 }
         }
         fclose(base_de_dados);
 }
-//Esta funÁ„o desempenha o papel de permitir que o usu·rio substitua a senha padr„o por uma senha personalizada durante o seu primeiro acesso ao sistema.
+//Esta fun√ß√£o desempenha o papel de permitir que o usu√°rio substitua a senha padr√£o por uma senha personalizada durante o seu primeiro acesso ao sistema.
 void primeiroacesso(void){
     setlocale(LC_ALL, "Portuguese_Brazil");
     system("cls");
     system("color 02");
     printf("\n\t--==|Mapeamento de cabos|==--\n\n\n\n");
     printf("|Primeiro acesso|\n\n");
-    printf("\n\nDigite e senha padr„o que lhe foi passada:\n| ");
+    printf("\n\nDigite e senha padr√£o que lhe foi passada:\n| ");
     fflush(stdin);
     fflush(stdin);
     scanf("%s", &senhapadrao);
@@ -133,19 +133,19 @@ void primeiroacesso(void){
     printf("\n\n|Confirme a nova senha:\n| ");
     fflush(stdin);
     scanf("%s", &newsenha);
-    //Verifica se o usu·rio informou a senha padr„o corretamente
+    //Verifica se o usu√°rio informou a senha padr√£o corretamente
     if (strcmp(senhapadrao, "$3nh4P4drao")==1 || strcmp(newsenha1, newsenha)==1)
     {
-        MessageBox(NULL, "\tAs senhas n„o coincidem\n  Tente novamente!.", "ERRO", MB_ICONINFORMATION | MB_APPLMODAL);
+        MessageBox(NULL, "\tAs senhas n√£o coincidem\n  Tente novamente!.", "ERRO", MB_ICONINFORMATION | MB_APPLMODAL);
         primeiroacesso();
     }
-    //Registra a nova senha definida pelo usu·rio na base de dados.
+    //Registra a nova senha definida pelo usu√°rio na base de dados.
     else{
         base_de_dados = fopen(nmtxtl, "w");
         fprintf(base_de_dados, "%s", newsenha);
         fclose(base_de_dados);
-        MessageBox(NULL, "\tSenha alterada com sucesso!\n  Reinicie o sistema para concluir a configuraÁ„o.", "AtenÁ„o", MB_ICONINFORMATION | MB_APPLMODAL);
-        MessageBox(NULL, "Fechando!", "ATEN«√O", MB_ICONINFORMATION | MB_APPLMODAL);
+        MessageBox(NULL, "\tSenha alterada com sucesso!\n  Reinicie o sistema para concluir a configura√ß√£o.", "Aten√ß√£o", MB_ICONINFORMATION | MB_APPLMODAL);
+        MessageBox(NULL, "Fechando!", "ATEN√á√ÉO", MB_ICONINFORMATION | MB_APPLMODAL);
         Sleep(500);
         exit(0);
     }
@@ -161,8 +161,8 @@ void validadoradm(void){
             menuadm();
         }
         else{
-            //Exibe uma caixa de erro fora da IDE, informando que o usu·rio esgotou suas tentativas de login.
-            MessageBox(NULL, "Credenciais incorretas ou usu·rio n„o cadastrado\n      Entre em contato com a sua administraÁ„o\n                                FECHANDO!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+            //Exibe uma caixa de erro fora da IDE, informando que o usu√°rio esgotou suas tentativas de login.
+            MessageBox(NULL, "Credenciais incorretas ou usu√°rio n√£o cadastrado\n      Entre em contato com a sua administra√ß√£o\n                                FECHANDO!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
             exit(0);
         }
 }
@@ -173,7 +173,7 @@ void menuadm(void){
     system("cls");
     system("color 02");
     printf("\n\t--==|Mapeamento de cabos|==--\n\n\n\n");
-    printf(" Ol·, Administrador.\n\n");
+    printf(" Ol√°, Administrador.\n\n");
     printf("| Data: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     system("date/t");
@@ -185,26 +185,26 @@ void menuadm(void){
     printf("               ______\n");
     printf("  ____________| Menu |____________\n");
     printf(" |                                |\n");
-    printf(" | * Digite apenas o n˙mero       |\n");
-    printf(" |   referente a opÁ„o!           |\n");
+    printf(" | * Digite apenas o n√∫mero       |\n");
+    printf(" |   referente a op√ß√£o!           |\n");
     printf(" |                                |\n");
-    printf(" | [1] Adicionar usu·rio          |\n");
-    printf(" | [2] Ver/excluir usu·rios atuais|\n");
+    printf(" | [1] Adicionar usu√°rio          |\n");
+    printf(" | [2] Ver/excluir usu√°rios atuais|\n");
     printf(" | [3] Editar ou apagar caminho   |\n");
     printf(" | [4] Sair                       |\n");
     printf(" |________________________________|\n");
-    printf("\n | OP«√O: ");
+    printf("\n | OP√á√ÉO: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%d", &opcao);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     while ((opcao != 1) && (opcao != 2) && (opcao != 3) && (opcao != 4)){
         system("cls");
-        //Exibe uma caixa de erro fora do Visual Studio Code, informando que o Administrador escolheu um opÁ„o inv·lida
-        MessageBox(NULL, "OP«√O INV¡LIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+        //Exibe uma caixa de erro fora do Visual Studio Code, informando que o Administrador escolheu um op√ß√£o inv√°lida
+        MessageBox(NULL, "OP√á√ÉO INV√ÅLIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
         system("color 02");
         printf("\n\t--==|Mapeamento de cabos|==--\n\n\n\n");
-        printf(" Ol·, Administrador.\n\n");
+        printf(" Ol√°, Administrador.\n\n");
         printf("| Data: ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         system("date/t");
@@ -218,21 +218,21 @@ void menuadm(void){
         printf(" |                                |\n");
         printf(" | ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-        printf("* Digite apenas o n˙mero");
+        printf("* Digite apenas o n√∫mero");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
         printf("       |\n");
         printf(" |   ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-        printf("referente a opÁ„o!");
+        printf("referente a op√ß√£o!");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
         printf("           |\n");
         printf(" |                                |\n");
-        printf(" | [1] Adicionar usu·rio          |\n");
-        printf(" | [2] Ver/excluir usu·rios atuais|\n");
+        printf(" | [1] Adicionar usu√°rio          |\n");
+        printf(" | [2] Ver/excluir usu√°rios atuais|\n");
         printf(" | [3] Editar ou apagar caminho   |\n");
         printf(" | [4] Sair                       |\n");
         printf(" |________________________________|\n");
-        printf("\n | OP«√O: ");
+        printf("\n | OP√á√ÉO: ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         fflush(stdin);
         scanf("%d", &opcao);
@@ -240,12 +240,12 @@ void menuadm(void){
     }
     switch (opcao){
         case 1: 
-        //Chama a funÁ„o 'AddUser', que permite ao administrador cadastrar um novo usu·rio.
+        //Chama a fun√ß√£o 'AddUser', que permite ao administrador cadastrar um novo usu√°rio.
             adduser();
             break;
         case 2:
-        //Abre a base de dados e exibe os usu·rios cadastrados pelo administrador.
-            MessageBox(NULL, "Qualquer erro pode comprometer a documentaÁ„o\nPortanto, atenÁ„o ao acessar a base de dados!", "ATEN«√O", MB_ICONINFORMATION | MB_APPLMODAL);
+        //Abre a base de dados e exibe os usu√°rios cadastrados pelo administrador.
+            MessageBox(NULL, "Qualquer erro pode comprometer a documenta√ß√£o\nPortanto, aten√ß√£o ao acessar a base de dados!", "ATEN√á√ÉO", MB_ICONINFORMATION | MB_APPLMODAL);
             system("start C:\\Documents\\Cable_Map\\Users");
             menuadm();
             break;
@@ -253,13 +253,13 @@ void menuadm(void){
         //Abre a base de dados de texto e permite que o administrador remova o registro de um caminho de cabo.
             base_de_dados = fopen("C:\\Documents\\Cable_Map\\Base_de_dados\\Caminhos_de_Cabos.txt", "r");
             if (base_de_dados = NULL){
-                MessageBox(NULL, "N„o h· caminhos registrados", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+                MessageBox(NULL, "N√£o h√° caminhos registrados", "ERRO", MB_ICONERROR | MB_APPLMODAL);
                 fclose(base_de_dados);
                 menuadm();
             }
             else{
                 fclose(base_de_dados);
-                MessageBox(NULL, "Qualquer erro pode comprometer a documentaÁ„o\nPortanto, atenÁ„o ao acessar a base de dados!", "ATEN«√O", MB_ICONINFORMATION | MB_APPLMODAL);
+                MessageBox(NULL, "Qualquer erro pode comprometer a documenta√ß√£o\nPortanto, aten√ß√£o ao acessar a base de dados!", "ATEN√á√ÉO", MB_ICONINFORMATION | MB_APPLMODAL);
                 system("start C:\\Documents\\Cable_Map\\Base_de_dados\\Caminhos_de_Cabos.txt");
                 menuadm();
             }
@@ -275,13 +275,13 @@ void adduser(void){
     system("cls");
     system("color 02");
     printf("\n\t--==|Mapeamento de cabos|==--\n\n\n\n");
-    printf("|Adicionar usu·rio|\n\n");
-    printf("| Usu·rio:\n| ");
+    printf("|Adicionar usu√°rio|\n\n");
+    printf("| Usu√°rio:\n| ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%s", &addusuario);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP«√O: ");
+    printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP√á√ÉO: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%s", &sc);
@@ -292,7 +292,7 @@ void adduser(void){
     }
     else if((strcmp(sc, "s") == 0) || (strcmp(sc, "S") == 0))
     {   
-        //Se o usu·rio confirmar o cadastro do novo usu·rio, as informaÁıes s„o salvas na base de dados.
+        //Se o usu√°rio confirmar o cadastro do novo usu√°rio, as informa√ß√µes s√£o salvas na base de dados.
         salvaruser();
     }
     else if((strcmp(sc, "v") == 0) || (strcmp(sc, "V") == 0))
@@ -301,9 +301,9 @@ void adduser(void){
     }
     while((sc != "s") && (sc != "S") && (sc != "c") && (sc != "C") && (sc != "v") && (sc != "V"))
     {
-        MessageBox(NULL, "OP«√O INV¡LIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+        MessageBox(NULL, "OP√á√ÉO INV√ÅLIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-        printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP«√O: ");
+        printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP√á√ÉO: ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         fflush(stdin);
         scanf("%s", &sc);
@@ -315,7 +315,7 @@ void adduser(void){
         }
         else if((strcmp(sc, "s") == 0) || (strcmp(sc, "S") == 0))
         {   
-            //Se o usu·rio confirmar o cadastro do novo usu·rio, as informaÁıes s„o salvas na base de dados.
+            //Se o usu√°rio confirmar o cadastro do novo usu√°rio, as informa√ß√µes s√£o salvas na base de dados.
             salvaruser();
             break;
         }
@@ -326,7 +326,7 @@ void adduser(void){
         }
     }
 }
-//FunÁ„o para cadastrar novos usu·rios e salvar na base de dados.
+//Fun√ß√£o para cadastrar novos usu√°rios e salvar na base de dados.
 void salvaruser(void){
     setlocale(LC_ALL, "Portuguese_Brazil");
     nmtxt[100] = "";
@@ -343,23 +343,23 @@ void salvaruser(void){
         Sleep(600);
         printf("\nDados gravados com sucesso!");
         fclose(base_de_dados);
-        MessageBox(NULL, "Usu·rio adicionado com sucesso!\n  Reinicie o sistema para concluir.", "AtenÁ„o", MB_ICONINFORMATION | MB_APPLMODAL);
+        MessageBox(NULL, "Usu√°rio adicionado com sucesso!\n  Reinicie o sistema para concluir.", "Aten√ß√£o", MB_ICONINFORMATION | MB_APPLMODAL);
         exit(0);
     }
     else{
-        MessageBox(NULL, "Nome de usuario indiponÌvel, entre em conato com o usu·rio!", "ATEN«√O", MB_ICONERROR | MB_APPLMODAL);
+        MessageBox(NULL, "Nome de usuario indipon√≠vel, entre em conato com o usu√°rio!", "ATEN√á√ÉO", MB_ICONERROR | MB_APPLMODAL);
         fclose(base_de_dados);
-        MessageBox(NULL, "Reinicie o sistema para uma nova tentativa", "ATEN«√O", MB_ICONINFORMATION | MB_APPLMODAL);
+        MessageBox(NULL, "Reinicie o sistema para uma nova tentativa", "ATEN√á√ÉO", MB_ICONINFORMATION | MB_APPLMODAL);
         exit(0);
     }
 }
-//Menu principal que possibilita a criaÁ„o e exclus„o de caminhos de cabos.
+//Menu principal que possibilita a cria√ß√£o e exclus√£o de caminhos de cabos.
 void menu(void){
     setlocale(LC_ALL, "Portuguese_Brazil");
     system("cls");
     system("color 02");
     printf("\n\t--==|Mapeamento de cabos|==--\n\n\n\n");
-    printf(" Ol·, %s.\n\n", username);
+    printf(" Ol√°, %s.\n\n", username);
     printf("| Data: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     system("date/t");
@@ -371,24 +371,24 @@ void menu(void){
     printf("               ______\n");
     printf("  ____________| Menu |____________\n");
     printf(" |                                |\n");
-    printf(" | * Digite apenas o n˙mero       |\n");
-    printf(" |   referente a opÁ„o!           |\n");
+    printf(" | * Digite apenas o n√∫mero       |\n");
+    printf(" |   referente a op√ß√£o!           |\n");
     printf(" |                                |\n");
     printf(" | [1] Adicionar caminho          |\n");
     printf(" | [2] Ver caminhos atuais        |\n");
     printf(" | [3] Sair                       |\n");
     printf(" |________________________________|\n");
-    printf("\n | OP«√O: ");
+    printf("\n | OP√á√ÉO: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%d", &opcao);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
     while ((opcao != 1) && (opcao != 2) && (opcao != 3)){
         system("cls");
-        MessageBox(NULL, "OP«√O INV¡LIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+        MessageBox(NULL, "OP√á√ÉO INV√ÅLIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
         printf("\t_____________________\n");
         printf("\t|Mapeamento de cabos|\n\n\n\n");
-        printf(" Ol·, %s.\n\n", username);
+        printf(" Ol√°, %s.\n\n", username);
         printf("| Data: ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         system("date/t");
@@ -402,12 +402,12 @@ void menu(void){
         printf(" |                                |\n");
         printf(" | ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-        printf("* Digite apenas o n˙mero");
+        printf("* Digite apenas o n√∫mero");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
         printf("       |\n");
         printf(" |   ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-        printf("referente a opÁ„o!");
+        printf("referente a op√ß√£o!");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
         printf("           |\n");
         printf(" |                                |\n");
@@ -416,14 +416,14 @@ void menu(void){
         printf(" | [2] Ver caminhos atuais        |\n");
         printf(" | [3] Sair                       |\n");
         printf(" |________________________________|\n");
-        printf("\n | OP«√O: ");
+        printf("\n | OP√á√ÉO: ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         fflush(stdin);
         scanf("%d", &opcao);
     }
     switch (opcao){
         case 1:
-        //Chama a funÁ„o respons·vel por adicionar um novo caminho.
+        //Chama a fun√ß√£o respons√°vel por adicionar um novo caminho.
         adicionarcaminho();
         break;
         case 2:
@@ -436,7 +436,7 @@ void menu(void){
         }
         else{
             fclose(base_de_dados);
-            //Chama a funÁ„o respons·vel por ler a base de dados.
+            //Chama a fun√ß√£o respons√°vel por ler a base de dados.
             lerArquivo();
         }
         break;
@@ -445,7 +445,7 @@ void menu(void){
         break;
     }
 }
-//FunÁ„o respons·vel por adicionar um novo caminho.
+//Fun√ß√£o respons√°vel por adicionar um novo caminho.
 void adicionarcaminho(void)
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -469,7 +469,7 @@ void adicionarcaminho(void)
     fflush(stdin);
     scanf("%[^\n]", ponto);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    printf("\n-IdentificaÁıes\n\n");
+    printf("\n-Identifica√ß√µes\n\n");
     printf("\n| Switch:\n| ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
@@ -490,7 +490,7 @@ void adicionarcaminho(void)
     fflush(stdin);
     scanf("%[^\n]", porta_patchpanel);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP«√O: ");
+    printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP√á√ÉO: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%s", &sc);
@@ -499,7 +499,7 @@ void adicionarcaminho(void)
         adicionarcaminho();
     }
     else if((strcmp(sc, "s") == 0) || (strcmp(sc, "S") == 0))
-    {   //Se o usu·rio confirmar as alteraÁıes, a funÁ„o salva o novo caminho na base de dados.
+    {   //Se o usu√°rio confirmar as altera√ß√µes, a fun√ß√£o salva o novo caminho na base de dados.
         GerarOuSalvarArquivo();
     }
     else if((strcmp(sc, "v") == 0) || (strcmp(sc, "V") == 0))
@@ -508,9 +508,9 @@ void adicionarcaminho(void)
     }
     while((sc != "s") && (sc != "S") && (sc != "c") && (sc != "C") && (sc != "v") && (sc != "V"))
     {
-        MessageBox(NULL, "OP«√O INV¡LIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+        MessageBox(NULL, "OP√á√ÉO INV√ÅLIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-        printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP«√O: ");
+        printf("\n\n| [S] Salvar\n| [C] Corrigir\n| [V] Voltar ao menu\n\n| OP√á√ÉO: ");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
         fflush(stdin);
         scanf("%s", &sc);
@@ -520,7 +520,7 @@ void adicionarcaminho(void)
             break;
         }
         else if((strcmp(sc, "s") == 0) || (strcmp(sc, "S") == 0))
-        {   //Se o usu·rio confirmar as alteraÁıes, a funÁ„o salva o novo caminho na base de dados.
+        {   //Se o usu√°rio confirmar as altera√ß√µes, a fun√ß√£o salva o novo caminho na base de dados.
             GerarOuSalvarArquivo();
             break;
         }
@@ -531,7 +531,7 @@ void adicionarcaminho(void)
         }
     }
 }
-//FunÁ„o respons·vel por salvar o novo caminho na base de dados.
+//Fun√ß√£o respons√°vel por salvar o novo caminho na base de dados.
 void GerarOuSalvarArquivo(void)
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -559,7 +559,7 @@ void GerarOuSalvarArquivo(void)
     Sleep(1000);
     menu();
 }
-//FunÁ„o respons·vel por ler um caminho previamente salvo.
+//Fun√ß√£o respons√°vel por ler um caminho previamente salvo.
 void lerArquivo(void)
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -584,7 +584,7 @@ void lerArquivo(void)
                 fclose(base_de_dados);
             }
     printf("\n\n| (1) Voltar");
-    printf("\n| OP«√O: ");
+    printf("\n| OP√á√ÉO: ");
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     fflush(stdin);
     scanf("%d", &opcao);
@@ -593,6 +593,6 @@ void lerArquivo(void)
         menu();
     }
     else{
-        MessageBox(NULL, "OP«√O INV¡LIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
+        MessageBox(NULL, "OP√á√ÉO INV√ÅLIDA!", "ERRO", MB_ICONERROR | MB_APPLMODAL);
     }
 }
